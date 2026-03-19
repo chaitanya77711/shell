@@ -2,7 +2,7 @@
 
 
 num1=7
-num2=7
+num2=chaitu
 
 total=$(($num1+$num2))
 

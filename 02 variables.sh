@@ -5,7 +5,7 @@ read user_name
 
 echo "user name $user_name"
 
-enter "enter password"
+echo "enter password"
 read password
 
 echo "your $password is"

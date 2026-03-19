@@ -13,4 +13,4 @@ echo "total is $total"
 
 fruits=("bananna" "mango" "grapes" "orange")
 
-echo "fruits are: ${fruits[@]}"
+echo "fruits are: ${fruits[1]}"

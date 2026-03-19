@@ -4,4 +4,4 @@
 num1=7
 num2=7
 
-total=$(($num1+$num2))
+total=(($num1+$num2))

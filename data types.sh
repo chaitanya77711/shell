@@ -5,3 +5,5 @@ num1=7
 num2=7
 
 total=$(($num1+$num2))
+
+echo "total is $total"

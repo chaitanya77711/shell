@@ -3,4 +3,4 @@
 
 name="chaitu"
 
-echo $name123
+echo $name

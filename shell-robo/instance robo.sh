@@ -3,6 +3,7 @@
 # ====== VARIABLES (change these) ======
 AMI_ID="ami-0220d79f3f480ecf5"
 SG_ID="sg-04ed303a8ef1f4a07"
+KEY_NAME="DevOps-key"
 zone_id="Z0225359BD1MOLB4YVEF"
 domain_name="devops7.online"
 
@@ -54,7 +55,7 @@ do
                 "TTL": 1,
                 "ResourceRecords": [
                     {
-                        "Value": "'"$IP"'"
+                        "Value": "'$IP'"
                     }
                 ]
             }

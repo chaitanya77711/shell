@@ -2,14 +2,14 @@
 
 user_id=$(id -u)
 logs_folder="/var/log/robo-shop"
-logs_file="$logs_folder/$0.log"
+logs_file="$logs_folder/mongo.log"
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
 if [ $user_id -ne 0 ]; then
-  echo  $R "run with root user" $N | tee -a  &>> $logs_folder
+  echo -e $R "run with root user" $N | tee -a $logs_folder
   exit 1
 
 fi  
@@ -18,11 +18,11 @@ mkdir -p $logs_folder
 
 validate() {
     if [ $1 -ne 0 ]; then
-     echo  $R  $2 "failure" $N | tee -a  &>> $logs_folder
+     echo -e $R  $2 "failure" $N | tee -a $logs_folder
      exit 1
 
     else
-     echo  $G  $2 "success" $N | tee -a  &>> $logs_folder
+     echo -e $G  $2 "success" $N | tee -a $logs_folder
 
     fi  
 

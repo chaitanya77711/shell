@@ -35,7 +35,7 @@ validate $? "Installing Python"
 
 id roboshop &>>$logs_file
 if [ $? -ne 0 ]; then
-    useradd system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$logs_file
+    useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$logs_file
     validate $? "Creating system user"
 else
     echo -e "Roboshop user already exist ... $Y SKIPPING $N"

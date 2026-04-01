@@ -7,7 +7,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
-script_dir=$pwd
+script_dir=$(pwd)
 mysql-host=mysql.devops7.online
 
 

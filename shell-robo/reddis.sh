@@ -7,6 +7,9 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
+script_dir=$pwd
+MONGODB_HOST=devops7.online
+
 
 if [ $user_id -ne 0 ]; then
   echo -e $R "run with root user" $N | tee -a $logs_file
@@ -28,20 +31,16 @@ validate() {
 
 } 
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo
-validate $? "copying mongo repo"
+dnf module disable redis -y
+dnf module enable redis:7 -y &>> $logs_file
+validate $? "diabled and enabld redis"
 
-dnf install mongodb-org -y 
-validate $? "installing mongoDB"
+dnf install redis -y &>> $logs_file
+validate $? "installing reddis"
 
-systemctl enable mongod 
-validate $? "enable mongod"
-
-systemctl start mongod
-validate $? "starting mongod"
-
-sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
+sed -i -e 's/127.0.0.1/0.0.0.0/g' -e '/protected-mode/ c protected-mode no/' /etc/redis/redis.conf
 validate $? "allowing remote connections"
 
-systemctl restart mongod
-validate $? "restrating"
+systemctl enable redis 
+systemctl start redis &>> $logs_file
+validate $? "restrating reddis"

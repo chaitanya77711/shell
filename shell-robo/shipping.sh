@@ -8,7 +8,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 script_dir=$pwd
-mysql-host=mysql.devops7.online
+mysql_host=mysql.devops7.online
 
 
 if [ $user_id -ne 0 ]; then
@@ -36,7 +36,7 @@ validate $? "installing"
 
 id roboshop &>> $logs_file
 if [ $? -ne 0 ]; then
-    useradd system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$logs_file
+    useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$logs_file
     validate $? "Creating system user"
 else
     echo -e "Roboshop user already exist ... $Y SKIPPING $N"

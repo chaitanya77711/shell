@@ -8,7 +8,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 script_dir=$(pwd)
-MONGODB_HOST=devops7.online
+MONGODB_HOST=mongodb.devops7.online
 
 
 if [ $user_id -ne 0 ]; then

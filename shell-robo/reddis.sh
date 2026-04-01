@@ -7,7 +7,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
-script_dir=$pwd
+script_dir=$(pwd)
 MONGODB_HOST=devops7.online
 
 
@@ -38,7 +38,7 @@ validate $? "diabled and enabld redis"
 dnf install redis -y &>> $logs_file
 validate $? "installing reddis"
 
-sed -i -e 's/127.0.0.1/0.0.0.0/g' -e '/protected-mode/ c protected-mode no/' /etc/redis.conf
+sed -i -e 's/127.0.0.1/0.0.0.0/g' -e '/protected-mode/ c protected-mode no/' /etc/redis/redis.conf
 validate $? "allowing remote connections"
 
 systemctl enable redis 

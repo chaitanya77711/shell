@@ -8,7 +8,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 script_dir=$(pwd)
-MONGODB_HOST=devops7.online
+MONGODB_HOST=mongodb.devops7.online
 
 
 if [ $user_id -ne 0 ]; then
@@ -80,7 +80,7 @@ validate $? "Installing Mongo client"
 
 INDEX=$(mongosh --host $MONGODB_HOST --quiet --eval 'db.getMongo().getDBNames().indexOf("catalogue")')
 
-if [ $INDEX -le 0 ]; then
+if [[ -z "$INDEX" || $INDEX -lt 0 ]]; then
     mongosh --host $MONGODB_HOST </app/db/master-data.js &>> $logs_file
     validate $? "Loading products"
 else

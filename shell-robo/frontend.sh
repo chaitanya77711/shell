@@ -7,7 +7,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
-script_dir=$pwd
+script_dir=$(pwd)
 MONGODB_HOST=devops7.online
 
 
@@ -51,7 +51,7 @@ validate $? "Downloaded and unzipped frontend"
 
 rm -rf /etc/nginx/nginx.conf
 
-cp $SCRIPT_DIR/nginx.conf /etc/nginx/nginx.conf
+cp $script_dir/nginx.conf /etc/nginx/nginx.conf
 validate $? "Copied our nginx conf file"
 
 systemctl restart nginx

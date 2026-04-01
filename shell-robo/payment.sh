@@ -7,7 +7,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
-script_dir=$pwd
+script_dir=$(pwd)
 MONGODB_HOST=devops7.online
 
 
@@ -61,7 +61,7 @@ cd /app
 pip3 install -r requirements.txt &>>$logs_file
 validate $? "Installing dependencies"
 
-cp $SCRIPT_DIR/payment.service /etc/systemd/system/payment.service
+cp $script_dir/payment.service /etc/systemd/system/payment.service
 validate $? "Created systemctl service"
 
 systemctl daemon-reload

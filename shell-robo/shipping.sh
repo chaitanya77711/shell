@@ -65,12 +65,20 @@ cp  $script_dir/shipping.service /etc/systemd/system/shipping.service
 validate $? "Created systemctl service"
 
 dnf install mysql -y 
+validate $? "installing mysql"
 
+mysql -h $MYSQL_HOST -uroot -pRoboShop@1 -e 'use cities'
 
-mysql -h mysql-host -uroot -pRoboShop@1 < /app/db/schema.sql
-mysql -h mysql-host -uroot -pRoboShop@1 < /app/db/app-user.sql
-mysql -h mysql-host -uroot -pRoboShop@1 < /app/db/master-data.sql
+if [ $? -ne 0 ]; then 
 
-systemctl enable shipping 
+   mysql -h mysql-host -uroot -pRoboShop@1 < /app/db/schema.sql &>>$LOGS_FILE
+   mysql -h mysql-host -uroot -pRoboShop@1 < /app/db/app-user.sql &>>$LOGS_FILE
+   mysql -h mysql-host -uroot -pRoboShop@1 < /app/db/master-data.sq &>>$LOGS_FILE
+   validate $? "Loaded data into mysqlL"
+else
+    echo -e "data is already loaded ... $Y SKIPPING $N"
+fi
+
+systemctl enable shipping &>>$LOGS_FILE
 systemctl start shipping
-validate $? "enabling and strating"
+validate $? "Enabled and started shipping"

@@ -27,17 +27,31 @@ I worked on setting up the server, configuring services, and making the applicat
 ## 🌐 Live Project
 http://13.217.217.151
 
----
-<img width="1920" height="1080" alt="Screenshot (9)" src="https://github.com/user-attachments/assets/ad2d5ac4-9fdd-48bc-a0c3-1d586ffa189f" />
 
+<img width="1920" height="1080" alt="Screenshot (9)" src="https://github.com/user-attachments/assets/c38592f5-1880-4819-b306-aaa7b21b0eca" />
+
+---
+
+## ⚙️ How to Run (Basic Steps)
+1. Launch an EC2 instance  
+2. Install required tools (Nginx, MongoDB)  
+3. Configure application services  
+4. Setup reverse proxy using Nginx  
+5. Start and enable services  
+6. Access the application using public IP  
+
+---
 
 ## 💡 What I Learned
-- How real-world deployments work
-- Troubleshooting and fixing errors
-- Basics of microservices architecture
-- Hands-on experience with AWS
+- How real-world deployments work  
+- Troubleshooting and fixing errors  
+- Basics of microservices architecture  
+- Hands-on experience with AWS  
+- Importance of proper configuration and service management  
 
 ---
 
-## 👨‍💻 Author
-Chaitanya
+## 🚧 Future Improvements
+- Add Docker support  
+- Setup CI/CD pipeline  
+- Use domain with HTTPS  

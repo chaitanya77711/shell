@@ -51,11 +51,14 @@ validate $? "Downloading shipping code"
 cd /app
 validate $? "Moving to app directory"
 
-rm -rf /app*
-validate $? "removing exsisting code"
+rm -rf *
+validate $? "removing existing code"
 
 unzip /tmp/shipping.zip &>> $logs_file
-validate $? "Uzip shipping code"
+validate $? "Unzip shipping code"
+
+dnf install unzip -y &>> $logs_file
+validate $? "Installing unzip"
 
 cd /app 
 mvn clean package 

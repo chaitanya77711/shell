@@ -51,6 +51,9 @@ validate $? "Downloading shipping code"
 cd /app
 validate $? "Moving to app directory"
 
+rm -rf /app*
+validate $? "removing exsisting code"
+
 unzip /tmp/shipping.zip &>> $logs_file
 validate $? "Uzip shipping code"
 
@@ -74,7 +77,7 @@ if [ $? -ne 0 ]; then
    mysql -h $mysql_host -uroot -pRoboShop@1 < /app/db/schema.sql &>>$logs_file
    mysql -h $mysql_host -uroot -pRoboShop@1 < /app/db/app-user.sql &>>$logs_file
    mysql -h $mysql_host -uroot -pRoboShop@1 < /app/db/master-data.sql &>>$logs_file
-   validate $? "Loaded data into mysqlL"
+   validate $? "Loaded data into mysql"
 else
     echo -e "data is already loaded ... $Y SKIPPING $N"
 fi

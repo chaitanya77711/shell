@@ -36,11 +36,11 @@ dnf module enable redis:7 -y &>> $logs_file
 validate $? "diabled and enabld redis:7"
 
 dnf install redis -y &>> $logs_file
-validate $? "installing reddis"
+validate $? "installing redis"
 
 sed -i -e 's/127.0.0.1/0.0.0.0/g' -e '/protected-mode/ c protected-mode no' /etc/redis/redis.conf
 validate $? "allowing remote connections"
 
 systemctl enable redis 
 systemctl start redis &>> $logs_file
-validate $? "restrating reddis"
+validate $? "restrating redis"

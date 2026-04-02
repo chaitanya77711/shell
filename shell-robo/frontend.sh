@@ -50,7 +50,7 @@ validate $? "Downloaded and unzipped frontend"
 
 rm -rf /etc/nginx/nginx.conf
 
-cp $script_dir/nginx.conf 
+cp $script_dir/nginx.conf /etc/nginx/nginx.conf
 validate $? "Copied our nginx conf file"
 
 systemctl restart nginx

@@ -36,9 +36,6 @@ systemctl start nginx
 validate $? "Enabled and started nginx"
 
 # Remove default content
-rm -rf /usr/share/nginx/html/*
-validate $? "Remove default content"
-
 # Download frontend
 curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip &>>$logs_file
 validate $? "Downloading frontend"
